@@ -1,6 +1,7 @@
-# README A Story
+# d
 
-## A README generator
+  ## Licensing
+  '![License](https://img.shields.io/badge/License-MIT-green.svg)'
 
   ## Table of Contents
   * [Description](#description)
@@ -11,16 +12,21 @@
   * [Questions](#cquestions)
 
   ## Description
-  The purpose of this application is to generate a professional README.md utilizing the command line.
+  s
 
   ## Installation
-   
+  d
 
   ## Usage
- 
+  s
 
   ## Contributions
-  
+  d
 
   ## Tests
-  
+  s
+
+  ## Questions
+  If you have any further questions you can contact me at:
+  * Github: https://github.com/d
+  * Email: s

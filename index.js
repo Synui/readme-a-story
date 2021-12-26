@@ -94,7 +94,7 @@ const questions = [
         type: 'checkbox',
         name: 'license',
         message: 'Choose a license that applies to your project. (Required)',
-        choices: ['MIT', 'GNU GPLv3', 'Apache', 'ISC', 'Mozilla Public', 'Boost Software', 'The Unlicense', 'none'],
+        choices: ['MIT', 'GPLv3', 'AGPLv3', 'LGPLv3', 'Apache', 'Mozilla', 'Boost', 'Unlicense'],
         validate: liscInput => {
             if (liscInput) {
                 return true;
@@ -118,24 +118,17 @@ const questions = [
             }
         }
     },
-    // email confirmation
-    {
-        type: 'confirm',
-        name: 'confirmEmail',
-        message: 'Would you like to enter your email?',
-        default: true
-    },
     // email information
     {
         type: 'input',
         name: 'email',
-        message: 'Enter your email:',
-        when: ({ confirmEmail }) => {
-            if (confirmEmail) {
+        message: 'Enter your email. (Required)',
+        validate: emailInput => {
+            if (emailInput) {
                 return true;
             }
             else {
-                return false;
+                console.log('Please enter an email!')
             }
         }
     },
@@ -146,7 +139,7 @@ function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
         if (err) throw err;
 
-        console.log('Your README.md is complete!')
+            console.log('Your README.md is complete!')
     })
 };
 
@@ -154,10 +147,11 @@ function writeToFile(fileName, data) {
 // function to initialize app
 function init() {
     inquirer.prompt(questions)
-        .then(function (user) {
-            writeToFile('README.md', generateMarkdown(user))
+        .then(function(user) {
+        writeToFile('yourREADME.md', generateMarkdown(user));
         });
 };
+
 
 // function call to initialize app
 init();
