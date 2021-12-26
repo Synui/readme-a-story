@@ -1,8 +1,8 @@
-# d
-
-  ## Licensing
+<!-- sample README based off of video demonstration -->
+# Hello
+  
   '![License](https://img.shields.io/badge/License-MIT-green.svg)'
-
+  
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
@@ -12,21 +12,24 @@
   * [Questions](#cquestions)
 
   ## Description
-  s
+  This App
 
   ## Installation
-  d
+  Will Help
 
   ## Usage
-  s
+  You
 
   ## Contributions
-  d
+  Make Professional
 
   ## Tests
-  s
+  READMEs
+
+  ## Licensing
+  For more information: 'https://choosealicense.com/licenses/'
 
   ## Questions
   If you have any further questions you can contact me at:
-  * Github: https://github.com/d
-  * Email: s
+  * Github: https://github.com/Synui
+  * Email: jonathon.schoenholz@yahoo.com

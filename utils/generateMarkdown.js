@@ -1,11 +1,10 @@
-// TODO: Create a function to generate markdown for README
+// function that utilizes the information from index.js
 function generateMarkdown(data) {
   
   return `# ${data.title}
-
-  ## Licensing
+  
   '![License](https://img.shields.io/badge/License-${data.license}-green.svg)'
-
+  
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
@@ -28,6 +27,9 @@ function generateMarkdown(data) {
 
   ## Tests
   ${data.tests}
+
+  ## Licensing
+  For more information: 'https://choosealicense.com/licenses/'
 
   ## Questions
   If you have any further questions you can contact me at:

@@ -143,7 +143,6 @@ function writeToFile(fileName, data) {
     })
 };
 
-
 // function to initialize app
 function init() {
     inquirer.prompt(questions)
@@ -151,7 +150,6 @@ function init() {
         writeToFile('yourREADME.md', generateMarkdown(user));
         });
 };
-
 
 // function call to initialize app
 init();
