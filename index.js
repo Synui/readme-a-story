@@ -78,7 +78,7 @@ const questions = [
     // tests
     {
         type: 'input',
-        name: 'test',
+        name: 'tests',
         message: 'Describe how you would test your projects? (Required)',
         validate: testInput => {
             if (testInput) {
@@ -104,41 +104,41 @@ const questions = [
             }
         }
     },
-// github username
-{
-    type: 'input',
-    name: 'githubUsername',
-    message: 'Enter your github username. (Required)',
-    validate: githubInput => {
-        if (githubInput) {
-            return true;
+    // github username
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your github username. (Required)',
+        validate: githubInput => {
+            if (githubInput) {
+                return true;
+            }
+            else {
+                console.log('Please provide your github username!')
+            }
         }
-        else {
-            console.log('Please provide your github username!')
+    },
+    // email confirmation
+    {
+        type: 'confirm',
+        name: 'confirmEmail',
+        message: 'Would you like to enter your email?',
+        default: true
+    },
+    // email information
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email:',
+        when: ({ confirmEmail }) => {
+            if (confirmEmail) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-    }
-},
-// email confirmation
-{
-    type: 'confirm',
-    name: 'confirmEmail',
-    message: 'Would you like to enter your email?',
-    default: true
-},
-// email information
-{
-    type: 'input',
-    name: 'email',
-    message: 'Enter your email:',
-    when: ({ confirmEmail }) => {
-        if (confirmEmail) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-},
+    },
 ];
 
 // function to write README file
@@ -149,14 +149,14 @@ function writeToFile(fileName, data) {
         console.log('Your README.md is complete!')
     })
 };
-  
+
 
 // function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(function(user) {
-        writeToFile('README.md', generateMarkdown(user))
-    });
+        .then(function (user) {
+            writeToFile('README.md', generateMarkdown(user))
+        });
 };
 
 // function call to initialize app
