@@ -1,6 +1,4 @@
-# README A Story
-
-## A README generator
+# README A Story: A README Generator
 
   ## Table of Contents
   * [Description](#description)
