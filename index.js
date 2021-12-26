@@ -5,41 +5,6 @@ const generateMarkdown = require('./utils/generateMarkdown.js')
 
 // questions utilized for README creation
 const questions = [
-    // github username
-    {
-        type: 'input',
-        name: 'githubUsername',
-        message: 'Enter your github username. (Required)',
-        validate: githubInput => {
-            if (githubInput) {
-                return true;
-            }
-            else {
-                console.log('Please provide your github username!')
-            }
-        }
-    },
-    // email confirmation
-    {
-        type: 'confirm',
-        name: 'confirmEmail',
-        message: 'Would you like to enter your email?',
-        default: true
-    },
-    // email information
-    {
-        type: 'input',
-        name: 'email',
-        message: 'Enter your email:',
-        when: ({ confirmEmail }) => {
-            if (confirmEmail) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-    },
     // project title
     {
         type: 'input',
@@ -92,7 +57,7 @@ const questions = [
                 return true;
             }
             else {
-                console.log('Please enter usage examples')
+                console.log('Please enter usage examples!')
             }
         }
     },
@@ -129,7 +94,7 @@ const questions = [
         type: 'checkbox',
         name: 'license',
         message: 'Choose a license that applies to your project. (Required)',
-        choices: ['MIT', ' GNU GPLv3', 'Apache', 'ISC', 'Mozilla Public', 'Boost Software', 'The Unlicense', 'none'],
+        choices: ['MIT', 'GNU GPLv3', 'Apache', 'ISC', 'Mozilla Public', 'Boost Software', 'The Unlicense', 'none'],
         validate: liscInput => {
             if (liscInput) {
                 return true;
@@ -139,16 +104,60 @@ const questions = [
             }
         }
     },
-
+// github username
+{
+    type: 'input',
+    name: 'githubUsername',
+    message: 'Enter your github username. (Required)',
+    validate: githubInput => {
+        if (githubInput) {
+            return true;
+        }
+        else {
+            console.log('Please provide your github username!')
+        }
+    }
+},
+// email confirmation
+{
+    type: 'confirm',
+    name: 'confirmEmail',
+    message: 'Would you like to enter your email?',
+    default: true
+},
+// email information
+{
+    type: 'input',
+    name: 'email',
+    message: 'Enter your email:',
+    when: ({ confirmEmail }) => {
+        if (confirmEmail) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+},
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) throw err;
+
+        console.log('Your README.md is complete!')
+    })
+};
   
 
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
-}
+    inquirer.prompt(questions)
+    .then(function(user) {
+        writeToFile('README.md', generateMarkdown(user))
+    });
+};
 
-// Function call to initialize app
+// function call to initialize app
 init();
